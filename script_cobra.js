@@ -50,8 +50,16 @@ function iniciarJogo(){
     if(direction=="left") snakeX -= box;
     if(direction=="up") snakeY -= box;
     if(direction=="down") snakeY += box;
+    
+    if(snakeX != lanche.x || snakeY != lanche.y){
+        snake.pop();
+    }
+    else{
+        lanche.x = Math.floor(Math.random() * 15 + 1) * box;
+        lanche.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
 
-    snake.pop();
+   
 
     let newHead={
         x: snakeX,
